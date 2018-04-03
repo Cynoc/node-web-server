@@ -1,7 +1,8 @@
 const express=require('express');
 const hbs=require('hbs');//allows us to render pages easily
 const fs=require('fs');
-const port= process.env.PORT || 3000; //set by heroku or 3000 locally
+const port= process.env.PORT || 3000;   //set by heroku or 3000 locally
+
 var app=express();
 //middleware lets you configure Express
 
@@ -55,6 +56,14 @@ res.render('home.hbs',{
 app.get('/about',(req,res)=>{
   res.render('about.hbs',{
     pageTitle:'About Page',
+  });
+});
+
+
+app.get('/project',(req,res)=>{
+  res.render('project.hbs',{
+    pageTitle:'Project Page',
+    message:'Welcome to my portfolio page'
   });
 });
 
