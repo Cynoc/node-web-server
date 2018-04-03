@@ -1,6 +1,7 @@
 const express=require('express');
 const hbs=require('hbs');//allows us to render pages easily
 const fs=require('fs');
+const port= process.env.PORT || 3000; //set by heroku or 3000 locally
 var app=express();
 //middleware lets you configure Express
 
@@ -64,7 +65,8 @@ app.get('/bad',(req,res)=>{
     errorMessage:'Unable to handle request'
   })
 });
+//heroku can set port
 
-app.listen(3000,() =>{
-  console.log('server is up on port 3000');
+app.listen(port,() =>{
+  console.log(`server is up on port ${port}`);
 });
